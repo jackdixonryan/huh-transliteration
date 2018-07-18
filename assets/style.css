@@ -1,0 +1,29 @@
+#btn-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+#keyboard-area {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.keyboard-key {
+    width: 60px;
+    margin: 3px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#space-button {
+    width: 80px;
+}
+
+.form-control {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+</head>
+
+
+<body>
+    <div class="jumbotron">
+        <h3 class="display-3">
+            Huh
+        </h3>
+        <p class="lead">
+            How do you say this? 
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-success">
+                    Let's face facts.
+                </h2>
+                <hr>
+                <p class="card-text">We don't all know the International Phonetic Alphabet, and sometimes transliterating a foreign text into a string of equally foreign characters just isn't helpful. Have you ever wondered how to just roughly sound something out? Well, pick a language.</p>
+                <div class="container" id="btn-box">
+                    <button class="btn btn-success">Arabic</button>
+                    <button class="btn btn-success" id="greek">Greek</button>
+                    <button class="btn btn-success">Cyrillic</button>
+                    <button class="btn btn-success">Hebrew</button>
+                    <button class="btn btn-success">Coptic</button>
+                    <button class="btn btn-success">Hieroglyph</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <input type="text" class="form-control" placeholder="What are you reading?">
+        <div class="container" id="keyboard-area">
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script src="assets/greek.js"></script>
+
+</body>
+</html>
