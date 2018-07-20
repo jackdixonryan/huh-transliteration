@@ -1,12 +1,12 @@
 //Basically four arrays, two for the keyboard in Greek and two for the transliteration.
 
-var greekAlphaCap = ["Α", "Β", "Γ", "Δ", "Ε", "Z", "H", "Θ", "Ι", "K", "Λ", "M", "N", "Ξ", "Ο", "Π", "P", "Σ", "T", "Y", "Φ", "Χ", "Ψ", "Ω"]
+var greekAlphaCap = ["Α", "Β", "Γ", "Δ", "Ε", "Z", "H", "Θ", "Ι", "K", "Λ", "M", "N", "Ξ", "Ο", "Π", "P", "Σ", "Σ", "T", "Y", "Φ", "Χ", "Ψ", "Ω"]
 
-var greekAlphaLow = ["α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ", "ν", "ξ", "o", "π", "ρ", "σ", "τ", "u", "φ", "χ", "ψ", "ω"];
+var greekAlphaLow = ["α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ", "ν", "ξ", "o", "π", "ρ", "σ", "ς", "τ", "u", "φ", "χ", "ψ", "ω"];
 
-var ancientGreekTransliteration = ["a", "b", "g", "d", "e", "z", "e", "th", "i", "k", "l", "m", "n", "ks", "o", "p", "r", "s", "t", "y", "ph", "kh", "ps", "aw"];
+var ancientGreekTransliteration = ["a", "b", "g", "d", "e", "z", "h", "th", "i", "k", "l", "m", "n", "ks", "o", "p", "r", "s", "s", "t", "y", "ph", "kh", "ps", "aw"];
 
-var modernGreekTransliteration = ["a", "v", "gh", "dh", "e", "z", "i", "th", "i", "k", "l", "m", "n", "ks", "o", "p", "r", "sz", "t", "i", "f", "x", "ps", "o"];
+var modernGreekTransliteration = ["a", "v", "gh", "dh", "e", "z", "h", "th", "i", "k", "l", "m", "n", "ks", "o", "p", "r", "s", "s", "t", "i", "f", "x", "ps", "o"];
 
 var greekInput = [];
 
@@ -14,7 +14,10 @@ var greekInput = [];
 //When the Greek option is selected by the user...
 
 $("#greek").on("click", function(){
-
+    $(".btn-warning").removeAttr("id");
+    $(".btn-warning").attr("id", "greek-search");
+    $("#keyboard-area").empty();
+    $(".form-control").attr("dir", "ltr");
     //A keyboard of Upper case greek letters is generated. Eventually I want it to be all upper case and then after the first click it shifts to lower, but having just gotten the shift button to work, I'm not going to do this. 
     for (var i = 0; i < greekAlphaLow.length; i++){
         var greekKey = $("<button>");
@@ -83,7 +86,7 @@ $("#greek").on("click", function(){
 });
 
 //For the transliteration button...
-$(".btn-warning").on("click", function(){
+$(document).on("click", "#greek-search", function(){
     //Take the content of the input field...
     searchValue = $(".form-control").val();
     $(".form-control").val("");
@@ -93,13 +96,14 @@ $(".btn-warning").on("click", function(){
     translitSectionTitle.text("Your Transliterations:");
     $("#success-area").html(translitSectionTitle);
 
-    var transliterationSuccess = $("<div class='card translit-result'>");
+    var transliterationSuccess = $("<div>");
+    transliterationSuccess.attr("class", "card translit-result");
     var originalWord = $("<h3>");
     originalWord.attr("class", "text-success card-title");
     originalWord.text(searchValue);
     //And add the word the user typed into the field.
     transliterationSuccess.append(originalWord);
-    transliterationSuccess.append("<hr>")
+    transliterationSuccess.append("<hr>");
 
     for (var j = 0; j < greekAlphaLow.length; j++){
         for (var k = 0; k < greekInput.length; k++){
@@ -131,5 +135,6 @@ $(".btn-warning").on("click", function(){
     $("#success-area").append(transliterationSuccess);
         
 });
+
 
 
