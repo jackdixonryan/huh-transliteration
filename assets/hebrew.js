@@ -1,6 +1,6 @@
 var hebrewAlpha = ["א‬", "ב‬", "בּ‬", "ג‬", "ד‬", "ה‬", "ו‬", "ז‬", "ח‬", "ט‬", "י‬", "כ‬", "כּ‬", "ךּ‬", "ך‬", "ל‬", "מ‬", "ם‬", "נ‬", "ן‬", "ס‬", "ע‬", "פ‬", "פּ‬", "ף‬", "צ‬", "ץ‬", "ק‬", "ר‬", "ש‬", "ת‬", "תּ‬"];
 
-var hebrewTranslit = ["'", "v", "b", "g", "d", "h", "v", "z", "kh", "t", "y", "kh", "k", "k", "kh", "l", "m", "m", "n", "n", "s", "'", "f", "p", "f", "ts", "ts", "k", "r", "sh", "t", "t"];
+var hebrewTranslit = ["'e", "v", "b", "g", "d", "h", "u", "z", "kh", "t", "y", "kh", "k", "k", "kh", "l", "m", "m", "n", "n", "s", "'", "f", "p", "f", "ts", "ts", "k", "r", "sh", "t", "t"];
 
 var hebrewInput = [];
 
@@ -22,18 +22,18 @@ $("#hebrew").on("click", function(){
     space.attr("class", "btn-success keyboard-key");
     space.attr("id", "space-button");
     $("#keyboard-area").append(space);
+});
 
-    $(document).on("click", ".keyboard-key", function(){
+$(document).on("click", ".keyboard-key", function(){
 
-        $(".form-control").attr("dir", "rtl");
+    $(".form-control").attr("dir", "rtl");
 
-        if ($(this).html() === "space"){
-            hebrewInput.push(" ");
-        } else{
-            hebrewInput.push($(this).html());
-            $(".form-control").val(hebrewInput.join(""));
-        }
-    });
+    if ($(this).html() === "space"){
+        hebrewInput.push(" ");
+    } else{
+        hebrewInput.push($(this).html());
+        $(".form-control").val(hebrewInput.join(""));
+    }
 });
 
 $(document).on("click", "#heb-search", function(){

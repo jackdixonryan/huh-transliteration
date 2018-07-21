@@ -71,25 +71,26 @@ $("#greek").on("click", function(){
             });
         });
     });
-    
+});
+
     //When a greek key is clicked...
-    $(document).on("click", ".keyboard-key", function(){
-        //If it's the spacebar, don't put 'space' into the array. Put a space ' ' into the array.
-        if ($(this).html() === "space"){
-            greekInput.push(" ");
-        //Otherwise, go ahead and add the text value of that letter to the array, and then update the input field with the letter. (this enables the user to copy/paste text as well, without having to use the keyboard to generate the value.)    
-        } else {
-            greekInput.push($(this).html());
-            $(".form-control").val(greekInput.join(""));
-        }
-    });
+$(document).on("click", ".keyboard-key", function(){
+    //If it's the spacebar, don't put 'space' into the array. Put a space ' ' into the array.
+    if ($(this).html() === "space"){
+        greekInput.push(" ");
+    //Otherwise, go ahead and add the text value of that letter to the array, and then update the input field with the letter. (this enables the user to copy/paste text as well, without having to use the keyboard to generate the value.)    
+    } else {
+        greekInput.push($(this).html());
+        $(".form-control").val(greekInput.join(""));
+    }
 });
 
 //For the transliteration button...
 $(document).on("click", "#greek-search", function(){
     //Take the content of the input field...
-    searchValue = $(".form-control").val();
+    var searchValue = $(".form-control").val();
     $(".form-control").val("");
+    console.log("The program believes that", $(".form-control").val(), "Is still in the search bar.");
     //Generate a transliteration area at the bottom of the page.
 
     var translitSectionTitle = $("<h2>");
@@ -114,12 +115,11 @@ $(document).on("click", "#greek-search", function(){
                     greekInput[k] = modernGreekTransliteration[j];
                     var modernGreekText = greekInput.join("");
             }
-            console.log("ANCIENT:", ancientGreekText);
-            console.log("MODERN:", modernGreekText);
         }
     }
     
     greekInput = [];
+    console.log("Input still contains", greekInput);
 
     var ancientGreekDisplay = $("<p>");
     ancientGreekDisplay.attr("class", "card-text");
